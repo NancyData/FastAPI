@@ -83,7 +83,7 @@ def cantidad_filmaciones_dia(dia:str):
 @app.get('/score_titulo/{titulo}')
 def score_titulo(titulo:str):
     fila = df[(df['title'] == titulo)].reset_index()
-    if titulo in fila == False:
+    if fila.empty:
         return ("La película no fue escrita correctamente o no se encuentra dentro de la base de datos. Colocar la primera letra de cada palabra en mayúscula")
     else:
         titulo = titulo
